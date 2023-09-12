@@ -7,13 +7,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _targets;
+    [SerializeField] private List<GameObject> _targets;     //ENCAPSULATION
 
-    [SerializeField] private TextMeshProUGUI _scoreText;
-    [SerializeField] private TextMeshProUGUI _livesText;
-    [SerializeField] private TextMeshProUGUI _gameOverText;
-    [SerializeField] private Button _restartButton;
-    [SerializeField] private GameObject _titleScreen;
+    [SerializeField] private TextMeshProUGUI _scoreText;    //ENCAPSULATION
+    [SerializeField] private TextMeshProUGUI _livesText;    //ENCAPSULATION
+    [SerializeField] private TextMeshProUGUI _gameOverText; //ENCAPSULATION
+    [SerializeField] private Button _restartButton;         //ENCAPSULATION
+    [SerializeField] private GameObject _titleScreen;       //ENCAPSULATION
 
     [HideInInspector] public bool _isGameActive;
     [HideInInspector] public int _lives = 3;

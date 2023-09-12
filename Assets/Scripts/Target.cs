@@ -4,47 +4,46 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem _explosionParticles;
-    [SerializeField] private int _scorePoint;
+    [SerializeField] protected ParticleSystem _explosionParticles;      //ENCAPSULATION
+    [SerializeField] protected int _scorePoint;     //ENCAPSULATION
 
-    private int _lives = 1;
-    private float _minForce = 12.0f;
-    private float _maxForce = 16.0f;
-    private float _maxTorque = 10.0f;
-    private float _xPos = 4.0f;
-    private float _ySpawnPos = -2;
+    private int _lives = 1;             //ENCAPSULATION
+    private float _minForce = 12.0f;    //ENCAPSULATION
+    private float _maxForce = 16.0f;    //ENCAPSULATION
+    private float _maxTorque = 10.0f;   //ENCAPSULATION
+    private float _xPos = 4.0f;         //ENCAPSULATION
+    private float _ySpawnPos = -2;      //ENCAPSULATION
 
-    private Rigidbody _targetRb;
-    private GameManager _gameManager;
+    private Rigidbody _targetRb;        //ENCAPSULATION
+    private GameManager _gameManager;   //ENCAPSULATION
 
-    // Start is called before the first frame update
-    void Start()
+    protected void StartSpawning()      //ABSTRACTION
     {
         _targetRb = GetComponent<Rigidbody>();
         _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
+        transform.position = RandomSpawnPosition();
+
         _targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         _targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
-
-        transform.position = RandomSpawnPosition();
     }
 
-    private Vector3 RandomForce()
-    {
-        return Vector3.up * Random.Range(_minForce, _maxForce);
-    }
-
-    private float RandomTorque()
-    {
-        return Random.Range(-_maxTorque, _maxTorque);
-    }
-
-    private Vector3 RandomSpawnPosition()
+    private Vector3 RandomSpawnPosition()       //ABSTRACTION
     {
         return new Vector3(Random.Range(-_xPos, _xPos), _ySpawnPos);
     }
 
-    private void OnMouseDown()
+    private Vector3 RandomForce()       //ABSTRACTION
+    {
+        return Vector3.up * Random.Range(_minForce, _maxForce);
+    }
+
+    private float RandomTorque()        //ABSTRACTION
+    {
+        return Random.Range(-_maxTorque, _maxTorque);
+    }
+
+    protected virtual void OnMouseDown()        //POLYMORPHISM
     {
         if(_gameManager._isGameActive)
         {

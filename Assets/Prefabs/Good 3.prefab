@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6418207822023719618}
   - component: {fileID: 3762187515525695154}
   - component: {fileID: 107082761957365725}
-  - component: {fileID: 9217667604012516992}
+  - component: {fileID: -6906660721701744355}
   m_Layer: 6
   m_Name: Good 3
   m_TagString: Good
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9217667604012516992
+--- !u!114 &-6906660721701744355
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,8 +124,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6432160423806000206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27365b6dc09dd5a4aa2704973a55b56e, type: 3}
+  m_Script: {fileID: 11500000, guid: bf4c9cc8ce972034caead1720ea34b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionParticles: {fileID: 3199346384015752365, guid: 307229a5540374aae98859caad2128a3, type: 3}
+  _explosionParticles: {fileID: 625621707174889904, guid: ef43e5aef41c142fb85a7658a397dc75, type: 3}
   _scorePoint: 15
+  _explosionParticle: {fileID: 625621707174889904, guid: ef43e5aef41c142fb85a7658a397dc75, type: 3}
