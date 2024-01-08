@@ -34,11 +34,12 @@ public class ObjectPool : MonoBehaviour
 
     public GameObject GetPooledObjects()
     {
+        int index = Random.Range(0, _pooledObjects.Count);
         for(int i = 0; i < _pooledObjects.Count; i++)
         {
-            if (!_pooledObjects[i].activeInHierarchy)
+            if (!_pooledObjects[index].activeInHierarchy)
             {
-                return _pooledObjects[i];
+                return _pooledObjects[index];
             }
         }
         return null;
