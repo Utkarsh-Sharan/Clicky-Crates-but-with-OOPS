@@ -17,7 +17,7 @@ public class Target : MonoBehaviour
     private Rigidbody _targetRb;        //ENCAPSULATION
     protected GameManager _gameManager;   //ENCAPSULATION
 
-    protected void StartSpawning()      //ABSTRACTION
+    protected void StartSpawning()
     {
         _targetRb = GetComponent<Rigidbody>();
         _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
@@ -25,7 +25,7 @@ public class Target : MonoBehaviour
         transform.position = RandomSpawnPosition();
 
         _targetRb.AddForce(RandomForce(), ForceMode.Impulse);
-        _targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
+        _targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);               
     }
 
     private Vector3 RandomSpawnPosition()       //ABSTRACTION

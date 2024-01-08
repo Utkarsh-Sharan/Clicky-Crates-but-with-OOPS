@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BadTarget : Target
+public class BadTarget : Target, IPoolable
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnObjectPool()
     {        
         StartSpawning();        //INHERITANCE
     }

@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _targets;     //ENCAPSULATION
-
     [SerializeField] private TextMeshProUGUI _scoreText;    //ENCAPSULATION
     [SerializeField] private TextMeshProUGUI _livesText;    //ENCAPSULATION
     [SerializeField] private TextMeshProUGUI _gameOverText; //ENCAPSULATION
@@ -39,12 +37,15 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(_spawnRate);
 
             GameObject targets = ObjectPool.instance.GetPooledObjects();
-            //int index = Random.Range(0, _targets.Count);
-            //Instantiate(_targets[index]);
-
             if(targets != null)
             {
                 targets.SetActive(true);
+            }
+
+            //IPoolable pooledObjects = targets.GetComponent<IPoolable>();
+            if(targets.TryGetComponent<IPoolable>(out IPoolable pooledObjects))
+            {
+                pooledObjects.OnObjectPool();
             }
         }
     }

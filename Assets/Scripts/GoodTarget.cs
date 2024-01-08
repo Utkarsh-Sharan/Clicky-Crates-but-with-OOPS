@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoodTarget : Target
-{
-    // Start is called before the first frame update
-    void Start()
+public class GoodTarget : Target, IPoolable
+{    
+    public void OnObjectPool()
     {
         StartSpawning();        //INHERITANCE
     }
@@ -16,7 +15,6 @@ public class GoodTarget : Target
         {
             _gameManager.UpdateScore(_scorePoint);
             Instantiate(_explosionParticles, transform.position, _explosionParticles.transform.rotation);
-            //Destroy(gameObject);
             gameObject.SetActive(false);
         }
     }
