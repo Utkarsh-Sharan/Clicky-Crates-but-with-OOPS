@@ -19,7 +19,7 @@ public class BadTarget : Target
         {
             _gameManager.UpdateScore(_scorePoint);
             Instantiate(_explosionParticles, transform.position, _explosionParticles.transform.rotation);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

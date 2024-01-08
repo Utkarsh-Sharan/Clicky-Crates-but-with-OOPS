@@ -62,6 +62,7 @@ public class Target : MonoBehaviour
                 _gameManager.UpdateLives(_lives);
             }
         }
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

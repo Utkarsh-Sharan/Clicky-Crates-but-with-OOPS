@@ -19,7 +19,8 @@ public class GoodTarget : Target
         {
             _gameManager.UpdateScore(_scorePoint);
             Instantiate(_explosionParticles, transform.position, _explosionParticles.transform.rotation);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

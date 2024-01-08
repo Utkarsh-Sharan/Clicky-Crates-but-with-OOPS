@@ -34,12 +34,18 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnTarget()
     {
-        while(_isGameActive)
+        while (_isGameActive)
         {
             yield return new WaitForSeconds(_spawnRate);
-            
-            int index = Random.Range(0, _targets.Count);
-            Instantiate(_targets[index]);
+
+            GameObject targets = ObjectPool.instance.GetPooledObjects();
+            //int index = Random.Range(0, _targets.Count);
+            //Instantiate(_targets[index]);
+
+            if(targets != null)
+            {
+                targets.SetActive(true);
+            }
         }
     }
 
