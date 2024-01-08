@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class BadTarget : Target
 {
-    private GameManager _gameManager;
-
     // Start is called before the first frame update
     void Start()
-    {
-        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+    {        
         StartSpawning();        //INHERITANCE
     }
 

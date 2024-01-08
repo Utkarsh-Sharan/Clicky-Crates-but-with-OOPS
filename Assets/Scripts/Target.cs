@@ -15,7 +15,7 @@ public class Target : MonoBehaviour
     private float _ySpawnPos = -2;      //ENCAPSULATION
 
     private Rigidbody _targetRb;        //ENCAPSULATION
-    private GameManager _gameManager;   //ENCAPSULATION
+    protected GameManager _gameManager;   //ENCAPSULATION
 
     protected void StartSpawning()      //ABSTRACTION
     {
