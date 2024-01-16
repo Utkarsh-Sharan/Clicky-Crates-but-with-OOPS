@@ -35,18 +35,7 @@ public class GameManager : MonoBehaviour
         while (_isGameActive)
         {
             yield return new WaitForSeconds(_spawnRate);
-
-            GameObject targets = ObjectPool.instance.GetPooledObjects();
-            if(targets != null)
-            {
-                targets.SetActive(true);
-            }
-
-            //IPoolable pooledObjects = targets.GetComponent<IPoolable>();
-            if(targets.TryGetComponent<IPoolable>(out IPoolable pooledObjects))
-            {
-                pooledObjects.OnObjectPool();
-            }
+            ObjectPool.instance.GetPooledObjects();                        
         }
     }
 

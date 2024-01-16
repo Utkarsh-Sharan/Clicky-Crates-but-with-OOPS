@@ -39,6 +39,15 @@ public class ObjectPool : MonoBehaviour
         {
             if (!_pooledObjects[index].activeInHierarchy)
             {
+                GameObject targets = _pooledObjects[index];
+                targets.SetActive(true);
+
+                IPoolable pooledObjects = targets.GetComponent<IPoolable>();
+                if (pooledObjects != null)
+                {
+                    pooledObjects.OnObjectPool();
+                }
+
                 return _pooledObjects[index];
             }
         }
